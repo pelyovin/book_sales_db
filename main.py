@@ -50,7 +50,7 @@ def get_book_shopping_list():
             join(Stock.shop).\
             join(Book.publisher).filter(generate_filtering_request())
         for stock, sale, book, shop, publisher in res.all():
-            print(book.title.ljust(40), shop.name, sale.price, sale.date_sale, sep=' | ')
+            print(book.title.ljust(40), shop.name.ljust(15), str(sale.price).ljust(6), sale.date_sale, sep='| ')
     else:
         print('Такого издателя нет.')
 
